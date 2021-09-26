@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+    padding: 50px;
+    padding-bottom: 25px;
+}
+form{
+    text-align: center;
+    padding: 25px;
+}
+ul{
+    list-style: none;
+    max-width: 50%;
+    margin: 0px auto;
+}
+button{
+    border-style: outset;
+    padding: 3px 5px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.lis{
+    border: 1px #ccc solid ;
+    margin: 10px 0px;
+    padding: 15px;
+}
+.checar{
+    background-color:green;
+    padding: 7px 12px;
+    font-size: 12px;
+    border: 0;
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+}
+.del{
+    background-color: red;
+    padding: 7px 12px;
+    font-size: 12px;
+    border: 0;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+.checar:hover{
+    background-color:#56E56F;
+    opacity: 0.6;
+}
+.del:hover{
+    background-color: #D9534F;
+    opacity: 0.6;
+}
+.chec > p{
+    text-decoration: line-through;
+}.itemShop{
+    font-style: italic;
+}
