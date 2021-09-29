@@ -30,34 +30,27 @@ function TodoPost(event){
   div.appendChild(label)
   list.appendChild(div)
   
-  
-  
-  //resumen
-  //hacer elementos, luego ponerlos en divs, y luego... se me fue la explicaicion
   }
 
 function TodoClear(event){
   
     var todos = document.getElementsByName("todo")
-    for (var i=0; i < todos.length; i++){
-        todos[i].checked = false
-    }
+
+    todos.forEach(element => {
+        element.checked=false
+    })
 }
 
 function TodoMark(event){
     var todos = document.getElementsByName("todo")
-    for (var i=0; i < todos.length; i++){
-        todos[i].checked = true
-    }
+
+    todos.forEach(element => {
+        element.checked=true
+    })
 }
 
 function TodoDel(event) {
-    /*
-    var todos = document.getElementsByName("todo")
-    for (var i=0; i < todos.length; i++){
-        todos[i].parentElement.remove()
-    }
-    */
+   
 
     var list = document.getElementById("todoList");
     list.innerHTML=""
