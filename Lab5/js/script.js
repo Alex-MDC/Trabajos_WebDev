@@ -1,17 +1,25 @@
-var post = document.getElementById("ButtonPost")
-var clear = document.getElementById("ButtonClear")
-var mark = document.getElementById("ButtonMark")
-var del = document.getElementById("ButtonDelete")
 
-//
-post.addEventListener("click", TodoPost)
-clear.addEventListener("click", TodoClear)
-mark.addEventListener("click", TodoMark)
-del.addEventListener("click", TodoDel)
+$("#ButtonClear").on("click",function(){
+    var todos = document.getElementsByName("todo")
 
+    todos.forEach(element => {
+        element.checked=false
+    })
+})
+$("#ButtonMark").on("click",function(){
+    var todos = document.getElementsByName("todo")
 
-function TodoPost(event){
-  event.preventDefault()
+    todos.forEach(element => {
+        element.checked=true
+    })
+})
+$("#ButtonDelete").on("click",function(){
+    var list = document.getElementById("todoList");
+    list.innerHTML=""
+})
+
+$("#ButtonPost").on("click",function(){
+    event.preventDefault()
   //esta fun evita el recargar del formulario!
   var todo = document.getElementById("todoText").value
  // alert(todo)
@@ -29,31 +37,4 @@ function TodoPost(event){
   div.appendChild(checkbox)
   div.appendChild(label)
   list.appendChild(div)
-  
-  }
-
-function TodoClear(event){
-  
-    var todos = document.getElementsByName("todo")
-
-    todos.forEach(element => {
-        element.checked=false
-    })
-}
-
-function TodoMark(event){
-    var todos = document.getElementsByName("todo")
-
-    todos.forEach(element => {
-        element.checked=true
-    })
-}
-
-function TodoDel(event) {
-   
-
-    var list = document.getElementById("todoList");
-    list.innerHTML=""
-}
-
-//refrs -> event listener --> funciones
+})
