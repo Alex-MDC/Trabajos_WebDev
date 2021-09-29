@@ -11,7 +11,7 @@ $("#botonAdd").on("click",function(){
     var p = document.createElement("p")
     var checkBoton = document.createElement("button")
     var delBoton = document.createElement("button")
-    
+    //
     checkBoton.className="checar"
     checkBoton.id="checarBotonQ"
     delBoton.className="del"
