@@ -3,7 +3,7 @@
 $(document).ready(function() {
 
     //start code here
-    var animals = ["dog", "cat", "duck","quetzal","bunny","chicken"];
+    var animals = ["dog", "cat", "duck","fox","bunny","chicken","Destiny2"];
 
 
     /*
@@ -43,8 +43,8 @@ $(document).ready(function() {
        //aqui se limpia los animales para que no este clogged se ve el last clicked
         $("#animals").empty()
         var search = $(this).attr("data-type")
-        alert(search)
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=laLlave"
+        //alert(search)
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=O09OndFTDm6M6oUhI1zyshNIKeh9YVhp"
         //editar el key!!!!
         $.ajax({url:queryUrl})
         .then(function(response) {
@@ -77,32 +77,29 @@ $(document).ready(function() {
                 // teniendo esto es el elemento completo
                 $("#animals").append(animalDiv)
 
-
-
-
             }
         });
 
     });
-    //falta darle registro del evento a la imagen, el click creo
-    // buscar si esta animado
-    // si no esta animado, animarlo; si esta animado; desanimarlo
-    //hacer el falso entre comillas porque es string usar triple igualdad
-
-    //registro evento imagen, ejemplo, falta el onclick y eso
     
-    /*
-    if (state =="false"){
-        $(this).attr("src", $(this).attr("data-aniimate"))
-        $(this).attr("data-isAnimated","true");
-
-    }
-    else{
-        $(this).attr("src", $(this).attr("data-still"))
-        $(this).attr("data-isAnimated","false");
-    }
-    */
-
+    // buscar si esta animado
+    // si no esta animado, animarlo; si esta animado; desanimarlo :((
+    //hacer el falso entre comillas porque es string 
+    $("#animals").on("click",".animal-image",function(){
+        //alert("clicked img")
+        if ( $(this).attr("data-isAnimated") =="false"){
+            $(this).attr("src", $(this).attr("data-animate"))
+            $(this).attr("data-isAnimated","true");
+          //  alert("not animated")
+    
+        }
+        else{
+            $(this).attr("src", $(this).attr("data-still"))
+            $(this).attr("data-isAnimated","false");
+          //  alert("animated")
+        }
+    })
+  
     populateButtons(animals,"animal-button","#animal-buttons")
 
 });
