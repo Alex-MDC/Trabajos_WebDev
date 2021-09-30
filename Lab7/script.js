@@ -1,9 +1,9 @@
 //esto de readyse espera a que cargue el doc y luego ejecuta
 //se evitan errores por si no esta listo algo 
 $(document).ready(function() {
-
+    
     //start code here
-    var animals = ["dog", "cat", "duck","fox","bunny","chicken","Destiny2"];
+    var animals = ["dog", "cat", "duck","fox","bunny","chicken","Destiny2","Keanu Reeves","The Expanse","Avatar The Last Airbender"];
 
 
     /*
@@ -22,12 +22,12 @@ $(document).ready(function() {
 
     function populateButtons(arrayToUse, classToAdd,placeHolder) {
         $(placeHolder).empty();
-
+        
         for (var i=0; i<arrayToUse.length; i++) {
             var a = $("<button>");
             a.addClass(classToAdd);
-            a.attr("data-type",animals[i]);
-            a.text(animals[i]);
+            a.attr("data-type",arrayToUse[i]);
+            a.text(arrayToUse[i]);
             $(placeHolder).append(a);
     
         }
@@ -100,6 +100,24 @@ $(document).ready(function() {
         }
     })
   
-    populateButtons(animals,"animal-button","#animal-buttons")
+    //populateButtons(animals,"animal-button","#animal-buttons")
 
+    //funcionalidad de add items
+    $("#add-animal").on("click",function() {
+        preventDefault()
+       // var animalsNuevo = animals
+        var nuevaCosa = document.getElementById("animal-input").value
+        animals.push(nuevaCosa)
+       // animals = animalsNuevo
+        populateButtons(animals,"animal-button","#animal-buttons")
+        //segenera el boton pero se sobreescribe
+
+        alert(nuevaCosa)
+        console.log(animals)
+        //preventDefault()
+    })
+
+    populateButtons(animals,"animal-button","#animal-buttons")
+    
 });
+
