@@ -103,17 +103,18 @@ $(document).ready(function() {
     //populateButtons(animals,"animal-button","#animal-buttons")
 
     //funcionalidad de add items
-    $("#add-animal").on("click",function() {
-        preventDefault()
+    $("#add-animal").on("click",function(event) {
+        event.preventDefault()
        // var animalsNuevo = animals
         var nuevaCosa = document.getElementById("animal-input").value
         animals.push(nuevaCosa)
        // animals = animalsNuevo
         populateButtons(animals,"animal-button","#animal-buttons")
         //segenera el boton pero se sobreescribe
+        //se arreglo agregando un event de parametro y el event antes del prevent default
 
-        alert(nuevaCosa)
-        console.log(animals)
+        //alert(nuevaCosa)
+      // console.log(animals)
         //preventDefault()
     })
 
