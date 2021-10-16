@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center"><span class="fa fa-fire"></span> Hot Restaurant</h1>
+      <hr>
+      <h2 class="text-center">Solo contamos con <span id="MesasDisponibles">x</span> mesas disponibles!</h2>
+      <br>
+
+      <div class="text-center">
+        <a href="/tables"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span>  Ver Mesas</button></a>
+        <a href="/reserve"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Hacer Reservación</button></a>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p><a href="/api/tables">API Reservaciones</a> | <a href="/api/waitlist">API Lista de Espera</a>
+      </div>
+    </footer>
+
+  </div>
+
+
+</body>
+</html>
