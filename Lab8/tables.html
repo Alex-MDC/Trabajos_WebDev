@@ -70,8 +70,70 @@
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
 <script type="text/javascript">
 
+function runReservedQuery() {
+
+  $.ajax({ url: "/api/tables", method: "GET"})
+  .then(function(tableData) {
+    console.log(tableData);
+    console.log("--------------------------------");
+
+    for(var i= 0; i< tableData.length; i++){
+      var tableList = $("#tableList");
+
+      var listItem = $("<li class='list-group-item mt-4'>");
+      listItem.append(
+        $("<h2>").text("Mesa# " + (i +1)),
+        $("<hr>"),
+        $("<h2>").text("Nombre: " + tableData[i].Nombre),
+        $("<h2>").text("Email: " + tableData[i].email),
+        $("<h2>").text("Telefono: " + tableData[i].telefono)
+      );
+      tableList.append(listItem);
+
+    }
+
+  });
+}
+
+function runWaitlistQuery() {
+
+$.ajax({ url: "/api/waitlist", method: "GET"})
+.then(function(waitData) {
+  console.log(waitData);
+  console.log("--------------------------------");
+
+  for(var i= 0; i< waitData.length; i++){
+    var waitList = $("#waitList");
+
+    var listItem = $("<li class='list-group-item mt-4'>");
+    listItem.append(
+      $("<h2>").text("# de Mesa " + (i +1)),
+      $("<hr>"),
+      $("<h2>").text("Nombre: " + waitData[i].Nombre),
+      $("<h2>").text("Email: " + waitData[i].email),
+      $("<h2>").text("Telefono: " + waitData[i].telefono)
+    );
+    waitList.append(listItem);
+
+  }
+
+});
+}
+
+function clearTable() {
+  alert("Borrando mesas!...");
+  $.ajax({url: "/api/clear", method:"POST"}).then(function() {
+    $("#waitList").empty();
+    $("#tableList").empty();
+    location.reload(true)
+  });
+}
+$("#clear").on("click", clearTable);
 
 
+
+runReservedQuery();
+runWaitlistQuery();
 
 </script>
 

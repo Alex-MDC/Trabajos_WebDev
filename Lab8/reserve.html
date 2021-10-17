@@ -56,7 +56,7 @@
                 <label for="reserve-email">Email</label>
                 <input type="text" class="form-control" id="reserve-email">
               </div>
-              <button type="submit" class="btn btn-primary submit">Reservar</button>
+              <button type="submit" class="btn btn-primary submit" id="rsvp-btn">Reservar</button>
             </form>
           </div>
         </div>
@@ -81,5 +81,36 @@
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
 
+
+$("#rsvp-btn").on("click", function(event) {
+      event.preventDefault();
+
+      var newTable = {
+        Nombre: $("#reserve-name").val().trim(),
+        telefono: $("#reserve-phone").val().trim(),
+        email: $("#reserve-email").val().trim()
+      };
+
+      // Post data to API "Database"
+      $.post("/api/tables", newTable)
+        .then(function(data) {
+          //si se agrego al rsvp
+          if(data){
+            alert("Se agrego a la lista de reservaciones!")
+          }
+          // se agrega al waitlist
+          else{
+            alert("Oops, las reservaciones estan llenas pero te agregamos a la lista de espera!")
+          }
+          console.log(data);
+          
+          $("#reserve-name").val("");
+          $("#reserve-phone").val("");
+          $("#reserve-email").val("")
+
+
+        });
+
+    });
 
 </script>

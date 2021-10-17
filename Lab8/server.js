@@ -11,17 +11,8 @@ app.use(express.json());
 
 // DATA
 // =============================================================
-
-var tables =[
-   
-
-];
-
-var waitlist =[
-    
-
-]
-
+var tables =[];
+var waitlist =[]
 // Routes
 // =============================================================
 app.get("/", function(req, res) {
@@ -39,6 +30,13 @@ app.get("/:requestID", function (req,res) {
 
 })
 
+//------------clear
+app.post("/api/clear",function(req,res){
+    tables = []
+    waitlist = []
+
+})
+
 //display all the info of tables or waitlist
 app.get("/api/tables", function(req, res) {
     return res.json(tables);
@@ -51,30 +49,34 @@ app.get("/api/tables", function(req, res) {
   //CREATE new RESERVATIONS
   app.post("/api/tables", function(req, res) {
       //manejar si son mas de 5 tables
-      if(tables.length() >= 5 ){
+      if(tables.length >= 5 ){
           console.log("Sorry we are full, we have added you to the waiting list")
 
         //mandar el contenido a waitlist
         var newWait = req.body;
+        console.log(newWait);
         waitlist.push(newWait);
-        res.json(newWait);
+        res.json(false);
 
       }
-      /*
+      else{
+      
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
-    var newcharacter = req.body;
+    var newTable = req.body;
   
     // Using a RegEx Pattern to remove spaces from newCharacter
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+    newTable.routeName = newTable.Nombre.replace(/\s+/g, "").toLowerCase();
   
-    console.log(newcharacter);
+    console.log(newTable);
   
-    characters.push(newcharacter);
+    tables.push(newTable);
   
-    res.json(newcharacter);
-    */
+    res.json(true);
+     
+  }
+    
   });
   
   // Starts the server to begin listening
