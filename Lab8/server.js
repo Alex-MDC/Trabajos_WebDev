@@ -20,6 +20,7 @@ app.get("/", function(req, res) {
   });
 
   //DYNAMIC ROUTE--------------------------------DYNAMIC ROUTE
+  //req is request, res is response
 app.get("/:requestID", function (req,res) {
     if(req.params.requestID == "reserve"){
         res.sendFile(path.join(__dirname, "reserve.html"));
