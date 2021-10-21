@@ -1,0 +1,9 @@
+<%-  include('../templates/header')   -%>
+
+<% animals.forEach(animal => {      %>
+
+    <p> <%= animal.animalType %> is a pet? <%= animal.pet %> Fierceness:  <%= animal.fierceness %></p>
+
+<%   })        %>
+
+<%-  include('../templates/footer')   -%>

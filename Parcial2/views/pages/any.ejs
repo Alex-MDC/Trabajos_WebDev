@@ -1,0 +1,15 @@
+<%-  include('../templates/header')   -%>
+
+<% if (animal != null)  {  %>
+
+<p>Type: <%= animal.animalType %></p>
+<p>Pet: <%= animal.pet %></p>
+<p>Fierceness:  <%= animal.fierceness %></p>
+
+<%  } else {  %>
+
+    <p> Not found!</p>
+
+    <%  }  %>
+
+<%-  include('../templates/footer')   -%>
