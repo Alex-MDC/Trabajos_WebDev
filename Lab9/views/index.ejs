@@ -1,0 +1,57 @@
+<%- include ("./partials/_header") %>
+
+
+
+<div class="container">
+  <a href ="/newPost"><button type="button" class="btn btn-primary">Create New Post</button></a>
+</div>
+
+<main role="main" class="container">
+  <div class="row">
+     <!-- Sample blog post-->
+     <!-- 
+    <div class="col-md-8 blog-main">
+      
+      <div class="blog-post">
+        <h2 class="blog-post-title">Sample blog post</h2>
+        <p class="blog-post-meta">November 1, 2014 by <a href="#">Mark</a>     </p>
+        <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+        <a class = "btn btn-danger" href =""> Delete </a>
+        <a class = "btn btn-info" href =""> Edit </a>
+      </div>
+
+
+
+    </div>
+    -->
+    <!--  TABLA CON LOS DATOS-->
+    <div class="col-md-8 blog-main">
+
+      <% for (var i= 0;i < posts.length; i++) { %>
+        <tr>
+          <!-- -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"> <%= posts[i].title %> </h2>
+            <p class="blog-post-meta"><%= posts[i].post_date %>  by <a href="#"> <%= posts[i].author %> </a>     </p>
+            <p><%= posts[i].post_data %></p>
+            <a class = "btn btn-danger" href ="/delete/<%= posts[i]._id %>"> Delete </a>
+            <a class = "btn btn-info" href ="/edit/<%= posts[i]._id %>"> Edit </a>
+
+          </div>
+          <!-- -->
+      </tr>
+
+      <% } %>
+      <!--  TABLA CON LOS DATOS-->
+    </div>
+    <% if ( posts.length < 1) { %>
+      <h1> There are no posts at the moment :( </h1>
+
+    <% } %>
+  </div>
+</main>
+
+
+
+
+<%- include ("./partials/_footer") %>
